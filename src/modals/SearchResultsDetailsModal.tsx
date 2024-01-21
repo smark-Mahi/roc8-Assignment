@@ -45,7 +45,7 @@ console.log(imageDetails,'det')
       size={windowWidth > 1000 ? "50%" : windowWidth > 500 ? "md" : "30%"}
       title={<h1>Preview ID: {imageDetails.id}</h1>}
     >
-      <main className="flex flex-col  md:flex-row  py-6 gap-6">
+      <main className="flex flex-col lg:flex-row  py-6 gap-6">
         <div className="rounded-md overflow-hidden  w-full relative">
           <Image
             src={imageDetails.largeImageURL}

@@ -3,21 +3,21 @@ import { signIn, useSession } from "next-auth/react";
 import { FaGithub } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
 import { Button } from "@mantine/core";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+// import { useRouter } from "next/navigation";
+// import { useEffect } from "react";
 const Login = () => {
-  const { status } = useSession();
-  const router = useRouter();
+  // const { status } = useSession();
+  // const router = useRouter();
 
-  function handleLogin() {
-    signIn("github");
-  }
+  // function handleLogin() {
+  //   signIn("github");
+  // }
 
-  useEffect(() => {
-    if (status === "authenticated") {
-      router.push("/");
-    }
-  }, [status]);
+  // useEffect(() => {
+  //   if (status === "authenticated") {
+  //     router.push("/");
+  //   }
+  // }, [status]);
  
 
   return (
@@ -28,7 +28,7 @@ const Login = () => {
           key="github"
           leftSection={<FaGithub />}
           color="black"
-          onClick={handleLogin}
+          // onClick={handleLogin}
         >
           Log In With GitHub
         </Button>

@@ -16,9 +16,28 @@ img,svg{
   display: block;
 }
 
+
+
 @media (prefers-color-scheme:dark){
   body{
     background: white;
     color: black;
+  }
+}
+
+.imageSlider{
+  width: 100%;
+  background-image: url("/HeroImage2.png");
+  background-size: 100% 100%;
+  box-shadow: rgba(149,157,165,0.2) 0px 8px 24px;
+  animation: changeRange 6s linear  infinite  ;
+}
+
+@keyframes changeRange {
+  0%{
+      background-image:url('/HeroImage2.png')
+  }
+  50%{
+      background-image:url('/HeroImage1.png')
   }
 }
