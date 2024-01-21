@@ -37,14 +37,15 @@ const SearchResultsDetailsModal = ({
 
   if (!opened) return null;
 console.log(imageDetails,'det')
+
   return (
     <Modal
       opened={opened}
       onClose={onClose}
-      size={windowWidth > 1000 ? "50%" : windowWidth > 500 ? "md" : "sm"}
+      size={windowWidth > 1000 ? "50%" : windowWidth > 500 ? "md" : "30%"}
       title={<h1>Preview ID: {imageDetails.id}</h1>}
     >
-      <main className="flex flex-wrap md:flex-nowrap  py-6 gap-6">
+      <main className="flex flex-col  md:flex-row  py-6 gap-6">
         <div className="rounded-md overflow-hidden  w-full relative">
           <Image
             src={imageDetails.largeImageURL}
@@ -58,10 +59,10 @@ console.log(imageDetails,'det')
             onLoad={(e) => setIsFullyLoaded(true)}
           />
         </div>
-        <div className="flex flex-col ">
-          <h1 className="text-sm md:text-md">Download</h1>
-          <div>
-            <Table highlightOnHover>
+        <div className="flex flex-col">
+          <h1 className="text-lg md:text-xl font-bold">Download</h1>
+          <div className="mt-4">
+            <Table highlightOnHover withTableBorder>
               <Table.Tbody>
                 {downloadDetails.map((details, i) => (
                   <Table.Tr key={i}>
@@ -69,16 +70,24 @@ console.log(imageDetails,'det')
                     <Table.Td>{details.sizeInPixels}</Table.Td>
                     <Table.Td>
                       {" "}
-                      <Checkbox defaultChecked color="lime" radius="lg" />
+                      {i === 0 ? (
+                        <Checkbox defaultChecked color="lime" radius="lg" />
+                      ) : (
+                        <Checkbox radius="lg" />
+                      )}
                     </Table.Td>
                   </Table.Tr>
                 ))}
               </Table.Tbody>
             </Table>
           </div>
-          <Button color="green">Download for free!</Button>
-          <h1 className="text-sm md:text-md self-start">Information</h1>
-          <div className="grid grid-cols-2 md:grid-cols-3 place-content-start">
+          <Button color="green" className="mt-4">
+            Download for free!
+          </Button>
+          <h1 className="text-lg md:text-xl self-start font-bold mt-4">
+            Information
+          </h1>
+          <div className="grid grid-cols-2 md:grid-cols-3 place-content-start mt-10 gap-4">
             <div>
               <p className="text-sm text-gray-300">User</p>
               <p className="font-semibold">{imageDetails.user}</p>
@@ -106,9 +115,7 @@ console.log(imageDetails,'det')
           </div>
         </div>
       </main>
-      <div>
-
-      </div>
+      <div></div>
     </Modal>
   );
 };
