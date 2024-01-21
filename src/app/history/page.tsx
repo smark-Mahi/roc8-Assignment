@@ -15,7 +15,7 @@ const History = () => {
         <div className="min-h-screen">
           {downloadedImages.length !== 0 && (
             // delete all images
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center mx-4">
               <p className="text-2xl font-semibold ">
                 <p>{downloadedImages.length} Images Downloaded</p>
               </p>
