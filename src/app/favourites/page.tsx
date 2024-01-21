@@ -16,7 +16,7 @@ const Favourite = () => {
       <Suspense fallback={<Loading />}>
         <div className="min-h-screen">
           {favourites.length === 0 ? (
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center mx-2">
               <p className="text-2xl">You have not added any favourites yet.</p>
             </div>
           ) : (

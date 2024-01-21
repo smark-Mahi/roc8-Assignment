@@ -28,7 +28,7 @@ const History = () => {
             </div>
           )}
           {downloadedImages.length === 0 ? (
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center mx-2">
               <p className="text-2xl">You have not download any Image yet.</p>
             </div>
           ) : (
