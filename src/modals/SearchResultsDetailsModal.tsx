@@ -42,7 +42,7 @@ console.log(imageDetails,'det')
     <Modal
       opened={opened}
       onClose={onClose}
-      size={windowWidth > 1000 ? "50%" : windowWidth > 500 ? "md" : "30%"}
+      size={windowWidth > 1000 ? "50%" : windowWidth > 500 ? "md" : "sm"}
       title={<h1>Preview ID: {imageDetails.id}</h1>}
     >
       <main className="flex flex-col lg:flex-row  py-6 gap-6">
