@@ -33,7 +33,7 @@ const History = () => {
           //show downloaded images
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 p-2 mt-4">
             {downloadedImages.map((downloadeImage) => (
-              <div className="bg-gray-300 group/item hover:opacity-60 border-solid border-[1.5px] border-[#cfcdcd8a] rounded-md overflow-hidden relative">
+              <div key={downloadeImage.id} className="bg-gray-300 group/item hover:opacity-60 border-solid border-[1.5px] border-[#cfcdcd8a] rounded-md overflow-hidden relative">
                 <Image
                   src={downloadeImage.largeImageURL}
                   alt={downloadeImage.tags}

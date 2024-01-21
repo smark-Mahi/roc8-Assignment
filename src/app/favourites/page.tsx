@@ -20,7 +20,7 @@ const Favourite = () => {
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 p-2">
             {favourites.map((fav) => (
-              <div className="bg-gray-300 group/item hover:opacity-60 border-solid border-[1.5px] border-[#cfcdcd8a] rounded-md overflow-hidden relative">
+              <div key={fav.id} className="bg-gray-300 group/item hover:opacity-60 border-solid border-[1.5px] border-[#cfcdcd8a] rounded-md overflow-hidden relative">
                 <Image
                   src={fav.largeImageURL}
                   alt={fav.tags}
