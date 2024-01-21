@@ -52,7 +52,7 @@ const HeroSection = () => {
             Discover over 2,000,000 free Stock Images
           </h1>
         )}
-        <div className="xl:w-[30%] sm:w-[50%] mx-8 sm:mx-0 self-center mt-20 flex items-center justify-between h-fit py-2 px-4 bg-[rgba(37,37,51,0.93)] border-solid border-2 border-[#a09f9f] rounded-md ">
+        <div className="xl:w-[30%] sm:w-[50%] mx-4 sm:mx-0 self-center mt-20 flex items-center justify-between h-fit py-2 px-4 bg-[rgba(37,37,51,0.93)] border-solid border-2 border-[#a09f9f] rounded-md ">
           <div className="w-full flex items-center">
             <CiSearch className="text-xl" />
             &nbsp;|&nbsp;
