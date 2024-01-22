@@ -48,7 +48,6 @@ const History = () => {
                       isFullyLoaded ? "opacity-100" : "opacity-0"
                     }  w-full h-40 sm:h-48 lg:h-72 object-cover transition-opacity group-hover:scale-125 group-hover:ease-in-out 
                   group-hover:transition-all group-hover:duration-700 duration-500`}
-                    loading="lazy"
                     onLoad={(e) => setIsFullyLoaded(true)}
                   />
                 </div>

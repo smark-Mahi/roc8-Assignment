@@ -42,7 +42,7 @@ const Card = ({ images }: { images: Hits }) => {
             isFullyLoaded ? "opacity-100" : "opacity-0"
           } max-w-full transition-opacity group-hover:scale-125 group-hover:ease-in-out 
       group-hover:transition-all group-hover:duration-700 duration-500`}
-          loading="lazy"
+          // loading="lazy"
           onLoad={(e) => setIsFullyLoaded(true)}
         />
         {isFullyLoaded && (
