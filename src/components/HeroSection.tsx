@@ -18,9 +18,17 @@ const HeroSection = () => {
   //Hooks
   const searchKey = useDebounce(searchValue || searchByCategory, 1000);
 
+  useEffect(() => {
+    setSearchValue(searchByCategory);
+  }, [searchByCategory]);
+
   //Functions
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearchValue(e.target.value);
+  }
+
+  function searchByCategoryHandler(category: string) {
+    setSearchByCategory(category === "All" ? "" : category);
   }
 
   //Fetching Search Result
@@ -68,7 +76,7 @@ const HeroSection = () => {
         </div>
         {searchKey ? (
           <p className="heroSection-text mt-12 mb-4 font-bold text-center self-center leading-relaxed">
-            Results: {searchValue || searchByCategory}
+            Results: {searchValue}
           </p>
         ) : (
           <p className="w-fit text-sm  self-center mt-4 py-1 px-4 bg-[rgba(37,37,51,0.93)] border-solid border-2 border-[#a09f9f] rounded-md">
@@ -103,9 +111,7 @@ const HeroSection = () => {
               <p
                 key={i}
                 className="categoriesText-style "
-                onClick={() =>
-                  setSearchByCategory(category === "All" ? "" : category)
-                }
+                onClick={() => searchByCategoryHandler(category)}
               >
                 {category}
               </p>
