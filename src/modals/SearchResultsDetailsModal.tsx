@@ -45,15 +45,16 @@ console.log(imageDetails,'det')
       size={windowWidth > 1000 ? "50%" : windowWidth > 500 ? "md" : "sm"}
       title={<h1>Preview ID: {imageDetails.id}</h1>}
     >
-      <main className="flex flex-col lg:flex-row  py-6 gap-6">
-        <div className="rounded-md overflow-hidden  w-full relative">
+      <main className="flex flex-row  py-6 w-full">
+        <div className="rounded-md overflow-hidden w-full relative">
           <Image
             src={imageDetails.largeImageURL}
             alt={imageDetails.tags}
-            fill={true}
+            height={400}
+            width={600}
             className={`${
               isFullyLoaded ? "opacity-100" : "opacity-0"
-            }  object-contain transition-opacity group-hover:scale-125 group-hover:ease-in-out 
+            }  h-60 transition-opacity group-hover:scale-125 group-hover:ease-in-out 
       group-hover:transition-all group-hover:duration-700 duration-500`}
             loading="lazy"
             onLoad={(e) => setIsFullyLoaded(true)}
@@ -88,27 +89,27 @@ console.log(imageDetails,'det')
             Information
           </h1>
           <div className="grid grid-cols-2 md:grid-cols-3 place-content-start mt-10 gap-4">
-            <div>
+            <div className="my-2">
               <p className="text-sm text-gray-300">User</p>
               <p className="font-semibold">{imageDetails.user}</p>
             </div>
-            <div>
+            <div className="my-2">
               <p className="text-sm text-gray-300">User ID</p>
               <p className="font-semibold">{imageDetails.user_id}</p>
             </div>
-            <div>
+            <div className="my-2">
               <p className="text-sm text-gray-300">Type</p>
               <p className="font-semibold">{imageDetails.type}</p>
             </div>
-            <div>
+            <div className="my-2">
               <p className="text-sm text-gray-300">Views</p>
               <p className="font-semibold">{imageDetails.views}</p>
             </div>
-            <div>
+            <div className="my-2">
               <p className="text-sm text-gray-300">Downloads</p>
               <p className="font-semibold">{imageDetails.downloads}</p>
             </div>
-            <div>
+            <div className="my-2">
               <p className="text-sm text-gray-300">Likes</p>
               <p className="font-semibold">{imageDetails.likes}</p>
             </div>
