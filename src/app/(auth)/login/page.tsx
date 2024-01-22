@@ -2,21 +2,21 @@
 import { signIn, useSession } from "next-auth/react";
 import { FaGithub } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
-// import { useRouter } from "next/navigation";
-// import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 const Login = () => {
-  // const { status } = useSession();
-  // const router = useRouter();
+  const { status } = useSession();
+  const router = useRouter();
 
-  // function handleLogin() {
-  //   signIn("github");
-  // }
+  function handleLogin() {
+    signIn("github");
+  }
 
-  // useEffect(() => {
-  //   if (status === "authenticated") {
-  //     router.push("/");
-  //   }
-  // }, [status]);
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/");
+    }
+  }, [status]);
 
   return (
     <div className="h-screen flex justify-center items-center ">
@@ -26,7 +26,7 @@ const Login = () => {
           key="github"
           className="bg-slate-800 h-10 rounded-md ring-2 "
 
-          // onClick={handleLogin}
+          onClick={handleLogin}
         >
           <p className="flex justify-around items-center text-white">
             <FaGithub className="text-2xl" /> Log In With GitHub
