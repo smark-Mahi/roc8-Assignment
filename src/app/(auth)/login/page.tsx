@@ -20,7 +20,7 @@ const Login = () => {
 
   return (
     <div className="h-screen flex justify-center items-center mx-8">
-      <div className="flex flex-col justify-around h-48 min-w-96 gap-2 px-4 rounded-sm border-solid border-[1.5px] border-gray-300">
+      <div className="flex flex-col justify-around h-48 min-w-96 gap-2 px-4 rounded-sm border-solid border-[1.5px] border-gray-300 mx-8">
         <h1 className="font-bold text-2xl self-center">Sign Up or Log In</h1>
         <button
           key="github"
