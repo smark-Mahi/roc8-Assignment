@@ -1,6 +1,6 @@
 "use client";
 import { Hits } from "@/types/searchData";
-import { Button, Checkbox, Modal, Table } from "@mantine/core";
+import { Checkbox, Modal, Table } from "@mantine/core";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -13,7 +13,6 @@ const SearchResultsDetailsModal = ({
   onClose: () => void;
   imageDetails: Hits;
 }) => {
-  const [isFullyLoaded, setIsFullyLoaded] = useState<boolean>(false);
   const [windowWidth, setWindoWidth] = useState(window.innerWidth);
 
   const handleWindowWidth = () => {
@@ -36,33 +35,33 @@ const SearchResultsDetailsModal = ({
   ];
 
   if (!opened) return null;
-console.log(imageDetails,'det')
+  console.log(imageDetails, "det");
 
   return (
     <Modal
       opened={opened}
       onClose={onClose}
-      size={windowWidth > 1000 ? "50%" : windowWidth > 500 ? "md" : "sm"}
+      size={windowWidth > 1000 ? "50%" : windowWidth < 1000 ? "70%" : "sm"}
       title={<h1>Preview ID: {imageDetails.id}</h1>}
     >
-      <main className="flex flex-row  py-6 w-full">
-        <div className="rounded-md overflow-hidden w-full relative">
+      <div
+        className={`${
+          windowWidth < 700 ? "grid-cols-1" : "grid-cols-2"
+        } grid gap-4 items-start`}
+      >
+        <div className="aspect-square  relative bg-white rounded-t-lg ">
           <Image
-            src={imageDetails.largeImageURL}
             alt={imageDetails.tags}
-            height={400}
-            width={600}
-            className={`${
-              isFullyLoaded ? "opacity-100" : "opacity-0"
-            }  h-60 transition-opacity group-hover:scale-125 group-hover:ease-in-out 
-      group-hover:transition-all group-hover:duration-700 duration-500`}
-            loading="lazy"
-            onLoad={(e) => setIsFullyLoaded(true)}
+            className="object-contain w-full rounded-lg overflow-hidden"
+            fill={true}
+            priority={true}
+            loading="eager"
+            src={imageDetails.largeImageURL}
           />
         </div>
-        <div className="flex flex-col">
-          <h1 className="text-lg md:text-xl font-bold">Download</h1>
-          <div className="mt-4">
+        <div className="flex flex-col ">
+          <h1 className="text-lg md:text-xl font-bold mx-8">Download</h1>
+          <div className="mt-4 mx-8">
             <Table highlightOnHover withTableBorder>
               <Table.Tbody>
                 {downloadDetails.map((details, i) => (
@@ -82,43 +81,47 @@ console.log(imageDetails,'det')
               </Table.Tbody>
             </Table>
           </div>
-          <Button color="green" className="mt-4">
-            Download for free!
-          </Button>
-          <h1 className="text-lg md:text-xl self-start font-bold mt-4">
+
+          <div className="mt-4 w-full mx-8">
+            <button className="h-8 px-16 bg-black text-white mx-20 rounded-md">
+              Download for free!
+            </button>
+          </div>
+          <h1 className="text-lg md:text-xl self-start font-bold mt-4 mx-8">
             Information
           </h1>
-          <div className="grid grid-cols-2 md:grid-cols-3 place-content-start mt-10 gap-4">
-            <div className="my-2">
+          <div className="grid grid-cols-2 lg:grid-cols-3 place-content-start mt-8 mx-8">
+            <div className="my-10 bg-red-300">
               <p className="text-sm text-gray-300">User</p>
               <p className="font-semibold">{imageDetails.user}</p>
             </div>
-            <div className="my-2">
+            <div className="my-10 bg-red-300">
               <p className="text-sm text-gray-300">User ID</p>
               <p className="font-semibold">{imageDetails.user_id}</p>
             </div>
-            <div className="my-2">
+            <div className="my-10 bg-red-300">
               <p className="text-sm text-gray-300">Type</p>
               <p className="font-semibold">{imageDetails.type}</p>
             </div>
-            <div className="my-2">
+            <div className="my-10 bg-red-300">
               <p className="text-sm text-gray-300">Views</p>
               <p className="font-semibold">{imageDetails.views}</p>
             </div>
-            <div className="my-2">
+            <div className="my-10 bg-red-300">
               <p className="text-sm text-gray-300">Downloads</p>
               <p className="font-semibold">{imageDetails.downloads}</p>
             </div>
-            <div className="my-2">
+            <div className="my-10 bg-red-300">
               <p className="text-sm text-gray-300">Likes</p>
               <p className="font-semibold">{imageDetails.likes}</p>
             </div>
           </div>
         </div>
-      </main>
-      <div></div>
+      </div>
     </Modal>
   );
 };
+
+
 
 export default SearchResultsDetailsModal;
