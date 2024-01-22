@@ -1,7 +1,7 @@
 "use client";
 import { Hits } from "@/types/searchData";
-import Image from "next/image";
-import React, { useState } from "react";
+// import Image from "next/image";
+import React, { useEffect, useState } from "react";
 import { TbDownload } from "react-icons/tb";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { useGlobalStates } from "@/store/globalState";
@@ -12,6 +12,10 @@ const Card = ({ images }: { images: Hits }) => {
   const [isFullyLoaded, setIsFullyLoaded] = useState<boolean>(false);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const { addToFavourites, addToDownloadedSection } = useGlobalStates();
+
+  useEffect(() => {
+    setIsFullyLoaded(true);
+  }, [images]);
 
   //Functions
   const close: () => void = () => setOpenModal(false);
@@ -32,18 +36,16 @@ const Card = ({ images }: { images: Hits }) => {
   return (
     <div>
       <div className="group/item hover:opacity-60 w-full relative bg-gray-300 break-inside-avoid mb-1 rounded-md overflow-hidden cursor-pointer">
-        <Image
+        <img
           onClick={() => setOpenModal(true)}
           src={images.largeImageURL}
           alt={images.tags}
-          width={1000}
-          height={1000}
           className={`${
             isFullyLoaded ? "opacity-100" : "opacity-0"
           } max-w-full transition-opacity group-hover:scale-125 group-hover:ease-in-out 
       group-hover:transition-all group-hover:duration-700 duration-500`}
           // loading="lazy"
-          onLoad={(e) => setIsFullyLoaded(true)}
+          // onLoad={(e) => setIsFullyLoaded(true)}
         />
         {isFullyLoaded && (
           <>
