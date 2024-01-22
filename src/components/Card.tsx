@@ -1,6 +1,5 @@
 "use client";
 import { Hits } from "@/types/searchData";
-// import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { TbDownload } from "react-icons/tb";
 import { IoIosHeartEmpty } from "react-icons/io";
@@ -44,8 +43,6 @@ const Card = ({ images }: { images: Hits }) => {
             isFullyLoaded ? "opacity-100" : "opacity-0"
           } max-w-full transition-opacity group-hover:scale-125 group-hover:ease-in-out 
       group-hover:transition-all group-hover:duration-700 duration-500`}
-          // loading="lazy"
-          // onLoad={(e) => setIsFullyLoaded(true)}
         />
         {isFullyLoaded && (
           <>

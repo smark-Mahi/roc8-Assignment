@@ -1,14 +1,18 @@
 "use client";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { useGlobalStates } from "../../store/globalState";
-import Image from "next/image";
 import { AiOutlineDelete } from "react-icons/ai";
 import Loading from "../loading";
 
 const Favourite = () => {
   const { favourites, deleteFromFavourites } = useGlobalStates();
   const [isFullyLoaded, setIsFullyLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsFullyLoaded(true);
+  }, [favourites]);
+
   return (
     <div className="lg:container">
       <Navbar />
@@ -26,7 +30,7 @@ const Favourite = () => {
                   key={fav.id}
                   className="bg-gray-300 group/item hover:opacity-60 border-solid border-[1.5px] border-[#cfcdcd8a] rounded-md overflow-hidden relative"
                 >
-                  <Image
+                  <img
                     src={fav.largeImageURL}
                     alt={fav.tags}
                     width={400}

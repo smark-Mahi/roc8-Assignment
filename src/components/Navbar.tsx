@@ -15,11 +15,11 @@ const Navbar = () => {
     signOut();
   }
 
-  useEffect(() => {
-    if (status === "unauthenticated") {
-      router.push("/login");
-    }
-  }, [status]);
+  // useEffect(() => {
+  //   if (status === "unauthenticated") {
+  //     router.push("/login");
+  //   }
+  // }, [status]);
 
   return (
     <div className="flex flex-col items-center h-fit py-2 px-4 bg-[rgba(82,82,112,0.9)] border-solid border-2 border-[#a09f9f] rounded-md md:m-8 m-4">

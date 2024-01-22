@@ -1,13 +1,17 @@
 "use client";
 import Navbar from "@/components/Navbar";
 import { useGlobalStates } from "@/store/globalState";
-import Image from "next/image";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Loading from "../loading";
 
 const History = () => {
   const { downloadedImages, clearHistory } = useGlobalStates();
   const [isFullyLoaded, setIsFullyLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsFullyLoaded(true);
+  }, [downloadedImages]);
+
   return (
     <div className="lg:container">
       <Navbar />
@@ -39,7 +43,7 @@ const History = () => {
                   key={downloadeImage.id}
                   className="bg-gray-300 group/item hover:opacity-60 border-solid border-[1.5px] border-[#cfcdcd8a] rounded-md overflow-hidden relative"
                 >
-                  <Image
+                  <img
                     src={downloadeImage.largeImageURL}
                     alt={downloadeImage.tags}
                     width={400}
@@ -48,7 +52,6 @@ const History = () => {
                       isFullyLoaded ? "opacity-100" : "opacity-0"
                     }  w-full h-40 sm:h-48 lg:h-72 object-cover transition-opacity group-hover:scale-125 group-hover:ease-in-out 
                   group-hover:transition-all group-hover:duration-700 duration-500`}
-                    onLoad={(e) => setIsFullyLoaded(true)}
                   />
                 </div>
               ))}
