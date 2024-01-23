@@ -46,12 +46,12 @@ const SearchResultsDetailsModal = ({
     >
       <div className={`flex flex-col gap-4 py-6 `}>
         <div className="aspect-square relative bg-white rounded-t-lg ">
-          <Image
+          <img
             alt={imageDetails.tags}
             className="object-contain w-full rounded-lg overflow-hidden"
-            fill={true}
-            priority={true}
-            loading="eager"
+            width={400}
+            height={400}
+            loading="lazy"
             src={imageDetails.largeImageURL}
           />
         </div>
