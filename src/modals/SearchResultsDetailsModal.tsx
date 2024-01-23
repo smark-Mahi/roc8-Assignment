@@ -50,7 +50,6 @@ const SearchResultsDetailsModal = ({
             alt={imageDetails.tags}
             className="object-contain w-full rounded-lg overflow-hidden"
             width={400}
-            height={400}
             loading="lazy"
             src={imageDetails.largeImageURL}
           />
