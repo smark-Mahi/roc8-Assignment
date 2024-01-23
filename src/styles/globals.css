@@ -1,0 +1,43 @@
+*,*::before,*::after{
+  box-sizing: border-box;
+}
+ 
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html,body{
+  min-height: 100%;
+}
+
+img,svg{
+  max-width: 100%;
+  display: block;
+}
+
+
+
+@media (prefers-color-scheme:dark){
+  body{
+    background: white;
+    color: black;
+  }
+}
+
+.imageSlider{
+  width: 100%;
+  background-image: url("/HeroImage2.png");
+  background-size: 100% 100%;
+  box-shadow: rgba(149,157,165,0.2) 0px 8px 24px;
+  animation: changeRange 10s linear  infinite  ;
+}
+
+@keyframes changeRange {
+  0%{
+      background-image:url('/HeroImage2.png')
+  }
+  50%{
+      background-image:url('/HeroImage1.png')
+  }
+}

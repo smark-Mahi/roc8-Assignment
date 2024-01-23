@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+.modalContainer{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        max-width: 30rem;
+        background-color: white;
+    }
+.animation-delay-1500{
+    animation-delay: -1.5s;
+    }
+   .categoriesText-style{
+    @apply text-center border-solid border-[0.5px] border-[#a09f9f] rounded-md py-2 cursor-pointer hover:shadow-lg duration-300 transition-opacity ease-in-out
+   }
+    .heroSection-text {
+        @apply sm:w-[450px] xl:w-[1200px] sm:text-4xl xl:text-8xl text-2xl w-80
+    }
+    .nav-text {
+        @apply font-light
+    }
+
+    .btn-style{
+        @apply border-solid border-2 border-[#FFFFFF] px-2 text-sm rounded-md
+    }
+}
+
