@@ -45,11 +45,12 @@ const SearchResultsDetailsModal = ({
       title={<h1>Preview ID: {imageDetails.id}</h1>}
     >
       <div className={`flex flex-col gap-4 py-6 `}>
-        <div className="aspect-square relative bg-white rounded-t-lg ">
+        <div className=" relative bg-white rounded-t-lg ">
           <img
             alt={imageDetails.tags}
             className="object-contain w-full rounded-lg overflow-hidden"
             width={400}
+            height={400}
             loading="lazy"
             src={imageDetails.largeImageURL}
           />
